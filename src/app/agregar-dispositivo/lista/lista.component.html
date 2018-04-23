@@ -1,0 +1,28 @@
+<div class="card" style="margin-top: 42px;">
+  <div class="card-body">
+    <h6 class="text-center">
+      List de Dispositivos
+    </h6>
+    <table class="table table-sm table-hover">
+      <tbody>
+        <tr>
+          <td>Nombre</td>
+          <td>Descripcion</td>
+          <td>Editar/Eliminar</td>
+        </tr>
+        <tr *ngFor="let dispositivo of dispositivoList">
+          <td>{{dispositivo.nombre}}</td>
+          <td>{{dispositivo.descripcion}}</td>
+          <td>
+            <a class="btn btn-secondary text-white" (click)="onEdit(dispositivo)">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a class="btn btn-danger text-white" (click)="onDelete(dispositivo.$key)">
+              <i class="fa fa-trash"></i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
