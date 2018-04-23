@@ -1,0 +1,44 @@
+<div class="card mt-5">
+  <div class="card-body">
+    <form #dispositivoForm="ngForm" (ngSubmit)="onSubmit(dispositivoForm)">
+      <!-- TO UPDATE -->
+      <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="dispositivoService.selectDispositivo.$key">
+      <div class="form-group">
+        <input type="text" class="form-control" name="nombre" #nombre="ngModel" [(ngModel)]="dispositivoService.selectDispositivo.nombre"
+          placeholder="Ingresar Nombre">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" name="descripcion" #descripcion="ngModel" [(ngModel)]="dispositivoService.selectDispositivo.descripcion"
+          placeholder="Ingresar descripcion">
+      </div>
+      <div class="form-group">
+        <!--<input type="text" class="form-control" name="estado" #estado="ngModel" [(ngModel)]="dispositivoService.selectDispositivo.estado"
+          placeholder="Seleccionar estado">-->
+        <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1">
+          <input type="checkbox" id="switch-1" class="mdl-switch__input" name="estado" 
+          #estado="ngModel" 
+          [(ngModel)]="dispositivoService.selectDispositivo.estado">
+          <span class="mdl-switch__label"></span>
+        </label>
+      </div>
+      <div class="form-group">
+        <div class="input-group">
+          <input type="text" class="form-control" 
+            name="puerto" 
+            #puerto="ngModel" 
+            [(ngModel)]="dispositivoService.selectDispositivo.puerto"
+            placeholder="Ingresar puerto">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">
+          <i class="fa fa-plus-circle"></i> Agregar
+        </button>
+        <button class="btn btn-secondary" type="reset" (click)="resetForm(dispositivoForm)">
+          <i class="fa fa-sync-alt"></i> Reiniciar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
