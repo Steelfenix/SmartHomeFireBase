@@ -1,0 +1,18 @@
+<div>
+    <button (click)="onToggle()" class="navbar-toggler" type="button">
+        Menu
+        <span class="fa fa-bars" (click)="onToggle()"></span>
+    </button>
+    <div *ngIf="toggle">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link">Lista de Dispositivos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link">Agregar/Editar Dispositivos</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<app-elementos></app-elementos>
+<app-agregar-dispositivo></app-agregar-dispositivo>
