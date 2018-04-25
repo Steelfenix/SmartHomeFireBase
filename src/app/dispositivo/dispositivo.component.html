@@ -12,7 +12,7 @@
           <button 
             (click)="onEncender()" 
             class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"
-            [disabled]="!estado">
+            [disabled]="estado">
             Encender
           </button>
         </div>
@@ -20,7 +20,7 @@
           <button 
             (click)="onApagar()" 
             class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"
-            [disabled]="estado">
+            [disabled]="!estado">
             Apagar
           </button>
         </div>

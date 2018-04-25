@@ -1,12 +1,10 @@
 <div class="container">
-  <div class="form-control">
-    <div class="row borrador">
-      <app-dispositivo *ngFor="let dispositivo of dispositivoList" 
-        [$key]="dispositivo.$key" 
-        [estado]="dispositivo.estado" 
-        [nombre]="dispositivo.nombre"
-        [puerto]="dispositivo.puerto" 
-        [descripcion]="dispositivo.descripcion"></app-dispositivo>
-    </div>
+  <div class="row borrador">
+    <app-dispositivo *ngFor="let dispositivo of dispositivoList" 
+      [$key]="dispositivo.$key" 
+      [estado]="dispositivo.estado" 
+      [nombre]="dispositivo.nombre"
+      [puerto]="dispositivo.puerto" 
+      [descripcion]="dispositivo.descripcion"></app-dispositivo>
   </div>
 </div>

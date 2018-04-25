@@ -22,7 +22,8 @@ export class DispositivoService {
             nombre: dispositivo.nombre,
             descripcion: dispositivo.descripcion,
             puerto: dispositivo.puerto,
-            estado: dispositivo.estado
+            estado: dispositivo.estado,
+            tipo: dispositivo.tipo
         });
     }
 
@@ -31,7 +32,8 @@ export class DispositivoService {
             nombre: dispositivo.nombre,
             descripcion: dispositivo.descripcion,
             puerto: dispositivo.puerto,
-            estado: dispositivo.estado
+            estado: dispositivo.estado,
+            tipo: dispositivo.tipo
         });
     }
 
