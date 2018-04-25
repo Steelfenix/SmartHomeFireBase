@@ -1,1 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
+.top-panel {
+    background-color: #E91E63;
+    height: 70px;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.top-panel > * {
+    background-color: #E91E63;
+    height: 70px;
+    color: #fff;
+    font-size: 35px;
+    padding-top: 15px;
+    width: 100%;
+}
+
+.top {
+    background-color: #C2185B;
+    height: 20px;
+    width: 100%;
+}
+
+.bot {
+    background-color: #C2185B;
+    height: 20px;
+    width: 100%;
+    margin-top: 49px;
+}

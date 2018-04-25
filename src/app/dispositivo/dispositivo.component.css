@@ -2,3 +2,28 @@
     margin-top: 15px;
     margin-bottom: 15px;
 }
+
+.mdl-card {
+    background-color: #E91E63 !important;
+}
+
+.mdl-card__title {
+    color: #FFFFFF !important;
+}   
+
+.mdl-card__supporting-text {
+    color: #F8BBD0;
+    font-size: 100% !important;
+}
+
+.mdl-card__actions {
+    background-color: white;
+}
+
+.mdl-card--border{
+    border-top-color: #BDBDBD solid 45px;
+}
+
+.mdl-button {
+    color: #212121;
+}

@@ -2,6 +2,7 @@ import { Dispositivo } from './../../models/dispositivo';
 import { DispositivoService } from './../../services/dispositivo.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { TipoDispositivo } from '../../models/tipo-dispositivo';
 
 @Component({
   selector: 'app-formulario',
@@ -9,6 +10,13 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./formulario.component.css']
 })
 export class FormularioComponent implements OnInit {
+
+  tipoDispositivoList = [
+    new TipoDispositivo(1, 'Foco'),
+    new TipoDispositivo(2, 'Ventilador')
+  ];
+
+  validado = true;
 
   constructor(private dispositivoService: DispositivoService) { }
 
@@ -18,12 +26,23 @@ export class FormularioComponent implements OnInit {
   }
 
   onSubmit(dispositivoForm: NgForm) {
-    if (dispositivoForm.value.$key == null) {
-      this.dispositivoService.agregarDispositivo(dispositivoForm.value);
-    } else {
-      this.dispositivoService.actualizarDispositivo(dispositivoForm.value);
+    this.validado = this.validarForm(dispositivoForm);
+    if (dispositivoForm.valid) {
+      if (dispositivoForm.value.$key == null) {
+        this.dispositivoService.agregarDispositivo(dispositivoForm.value);
+      } else {
+        this.dispositivoService.actualizarDispositivo(dispositivoForm.value);
+      }
+      this.resetForm(dispositivoForm);
     }
-    this.resetForm(dispositivoForm);
+  }
+
+  validarForm(dispositivoForm: NgForm): boolean {
+    if (dispositivoForm.valid) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   resetForm(dispositivoForm?: NgForm) {

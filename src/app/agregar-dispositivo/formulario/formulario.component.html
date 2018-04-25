@@ -4,33 +4,45 @@
       <!-- TO UPDATE -->
       <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="dispositivoService.selectDispositivo.$key">
       <div class="form-group">
-        <input type="text" class="form-control" name="nombre" #nombre="ngModel" [(ngModel)]="dispositivoService.selectDispositivo.nombre"
+        <input type="text" class="form-control" required name="nombre" #nombre="ngModel" [(ngModel)]="dispositivoService.selectDispositivo.nombre"
           placeholder="Ingresar Nombre">
+        <div class="error" *ngIf="nombre.touched && nombre.errors">
+          El nombre es requerido
+        </div>
       </div>
       <div class="form-group">
         <input type="text" class="form-control" name="descripcion" #descripcion="ngModel" [(ngModel)]="dispositivoService.selectDispositivo.descripcion"
-          placeholder="Ingresar descripcion">
+          placeholder="Ingresar descripcion" [required]="true">
       </div>
       <div class="form-group">
-        <!--<input type="text" class="form-control" name="estado" #estado="ngModel" [(ngModel)]="dispositivoService.selectDispositivo.estado"
-          placeholder="Seleccionar estado">-->
+        Estado del Dispositivo        
         <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1">
-          <input type="checkbox" id="switch-1" class="mdl-switch__input" name="estado" 
-          #estado="ngModel" 
-          [(ngModel)]="dispositivoService.selectDispositivo.estado">
+          <input type="checkbox" id="switch-1" class="mdl-switch__input" name="estado" #estado="ngModel" [(ngModel)]="dispositivoService.selectDispositivo.estado">
           <span class="mdl-switch__label"></span>
         </label>
       </div>
       <div class="form-group">
         <div class="input-group">
-          <input type="text" class="form-control" 
-            name="puerto" 
-            #puerto="ngModel" 
-            [(ngModel)]="dispositivoService.selectDispositivo.puerto"
-            placeholder="Ingresar puerto">
+          <input type="text" class="form-control" name="puerto" #puerto="ngModel" [(ngModel)]="dispositivoService.selectDispositivo.puerto"
+            placeholder="Ingresar puerto" [required]="true">
+        </div>
+        <div class="error" *ngIf="puerto.touched && puerto.errors">
+          El puerto es requerido
         </div>
       </div>
-
+      <div class="form-group">
+        <select required class="form-control" #tipo="ngModel" name="tipo" [(ngModel)]="dispositivoService.selectDispositivo.tipo">
+          <option [ngValue]="0">
+            Seleccione un Tipo de Dispositivo
+          </option>
+          <option *ngFor="let tipo of tipoDispositivoList" [ngValue]="tipo.idTipo">
+            {{ tipo.nombre }}
+          </option>
+        </select>
+        <div class="error" *ngIf="dispositivoService.selectDispositivo.tipo === 0 && !validado">
+          El tipo es requerido
+        </div>
+      </div>
       <div class="form-group">
         <button class="btn btn-primary" type="submit">
           <i class="fa fa-plus-circle"></i> Agregar

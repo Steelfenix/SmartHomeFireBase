@@ -32,12 +32,12 @@ export class DispositivoComponent implements OnInit {
   }
 
   onEncender() {
-    this.estado = false;
+    this.estado = true;
     this.setDispositivoModel();
   }
 
   onApagar() {
-    this.estado = true;
+    this.estado = false;
     this.setDispositivoModel();
   }
 
