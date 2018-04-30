@@ -1,3 +1,4 @@
+import { Notificacion } from './../models/notificacion';
 import { Dispositivo } from './../models/dispositivo';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -9,6 +10,8 @@ import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 export class DispositivoService {
 
     dispositivosList: AngularFireList<any>;
+    notificacionesList: AngularFireList<any>;
+
     public selectDispositivo: Dispositivo = new Dispositivo();
 
     constructor(private firebase: AngularFireDatabase) { }
@@ -39,5 +42,17 @@ export class DispositivoService {
 
     eliminarDispositivo($key: string) {
         this.dispositivosList.remove($key);
+    }
+
+    consultarNotificaciones() {
+        return this.notificacionesList = this.firebase.list('notificaciones');
+    }
+
+    agregarNotificacion(notificacion: Notificacion) {
+        this.notificacionesList.push({
+            hora: notificacion.hora,
+            estado: notificacion.estado,
+            nombreDispositivo: notificacion.nombreDispositivo
+        });
     }
 }

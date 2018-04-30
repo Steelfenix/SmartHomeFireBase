@@ -17,6 +17,7 @@ export class FormularioComponent implements OnInit {
   ];
 
   validado = true;
+  mensajeBoton = 'Agregar';
 
   constructor(private dispositivoService: DispositivoService) { }
 
@@ -49,6 +50,7 @@ export class FormularioComponent implements OnInit {
     if (dispositivoForm != null) {
       dispositivoForm.reset();
       this.dispositivoService.selectDispositivo = new Dispositivo();
+      this.mensajeBoton = 'Agregar';
     }
   }
 }

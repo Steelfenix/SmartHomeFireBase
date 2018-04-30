@@ -29,3 +29,19 @@
     width: 100%;
     margin-top: 49px;
 }
+
+.boton-primary { 
+    height: auto;
+    width: auto;
+    background-color: #E91E63;
+    border: none;
+    color: #fff;
+}
+
+.boton-secondary { 
+    height: auto;
+    width: auto;
+    background-color: #3F51B5;
+    border: none;
+    color: #fff;
+}

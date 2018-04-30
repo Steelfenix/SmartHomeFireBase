@@ -1,10 +1,17 @@
 <div class="container">
-  <div class="row borrador">
+  <div class="row">
     <app-dispositivo *ngFor="let dispositivo of dispositivoList" 
       [$key]="dispositivo.$key" 
       [estado]="dispositivo.estado" 
       [nombre]="dispositivo.nombre"
       [puerto]="dispositivo.puerto" 
-      [descripcion]="dispositivo.descripcion"></app-dispositivo>
+      [descripcion]="dispositivo.descripcion"
+      [tipo]="dispositivo.tipo"></app-dispositivo>
   </div>
+  <p>Notificaciones</p>
+  <app-notificacion *ngFor="let notificacion of notificacionList"
+    [fecha]="notificacion.fecha"  
+    [hora]="notificacion.hora"
+    [estado]="notificacion.estado"
+    [nombreDispositivo]="notificacion.nombreDispositivo"></app-notificacion>
 </div>
