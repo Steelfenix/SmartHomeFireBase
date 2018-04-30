@@ -18,6 +18,8 @@ import { ElementosComponent } from './elementos/elementos.component';
 import { AgregarDispositivoComponent } from './agregar-dispositivo/agregar-dispositivo.component';
 import { FormularioComponent } from './agregar-dispositivo/formulario/formulario.component';
 import { ListaComponent } from './agregar-dispositivo/lista/lista.component';
+import { NotificacionService } from './services/notificacion.service';
+import { NotificacionComponent } from './notificacion/notificacion.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { ListaComponent } from './agregar-dispositivo/lista/lista.component';
     ElementosComponent,
     AgregarDispositivoComponent,
     FormularioComponent,
-    ListaComponent
+    ListaComponent,
+    NotificacionComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,7 @@ import { ListaComponent } from './agregar-dispositivo/lista/lista.component';
     AngularFireDatabaseModule,
     FormsModule
   ],
-  providers: [DispositivoService],
+  providers: [DispositivoService, NotificacionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

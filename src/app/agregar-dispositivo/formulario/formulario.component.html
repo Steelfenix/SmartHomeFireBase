@@ -6,6 +6,7 @@
       <div class="form-group">
         <input type="text" class="form-control" required name="nombre" #nombre="ngModel" [(ngModel)]="dispositivoService.selectDispositivo.nombre"
           placeholder="Ingresar Nombre">
+        <input type="hidden" name="estado" #estado="ngModel" [(ngModel)]="dispositivoService.selectDispositivo.estado">
         <div class="error" *ngIf="nombre.touched && nombre.errors">
           El nombre es requerido
         </div>
@@ -14,13 +15,13 @@
         <input type="text" class="form-control" name="descripcion" #descripcion="ngModel" [(ngModel)]="dispositivoService.selectDispositivo.descripcion"
           placeholder="Ingresar descripcion" [required]="true">
       </div>
-      <div class="form-group">
+      <!--<div class="form-group">
         Estado del Dispositivo        
         <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1">
           <input type="checkbox" id="switch-1" class="mdl-switch__input" name="estado" #estado="ngModel" [(ngModel)]="dispositivoService.selectDispositivo.estado">
           <span class="mdl-switch__label"></span>
         </label>
-      </div>
+      </div>-->
       <div class="form-group">
         <div class="input-group">
           <input type="text" class="form-control" name="puerto" #puerto="ngModel" [(ngModel)]="dispositivoService.selectDispositivo.puerto"
@@ -44,10 +45,16 @@
         </div>
       </div>
       <div class="form-group">
-        <button class="btn btn-primary" type="submit">
+        <button class="btn boton-primary" type="submit" 
+          *ngIf="dispositivoService.selectDispositivo.$key === undefined 
+            || dispositivoService.selectDispositivo.$key === ' '">
           <i class="fa fa-plus-circle"></i> Agregar
         </button>
-        <button class="btn btn-secondary" type="reset" (click)="resetForm(dispositivoForm)">
+        <button class="btn boton-primary" type="submit"
+          *ngIf="dispositivoService.selectDispositivo.$key !== undefined">
+          <i class="fa fa-plus-circle"></i> Editar
+        </button>
+        <button class="btn boton-secondary" type="reset" (click)="resetForm(dispositivoForm)">
           <i class="fa fa-sync-alt"></i> Reiniciar
         </button>
       </div>

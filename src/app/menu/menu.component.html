@@ -1,6 +1,16 @@
 <div class="top"></div>
 <div class="top-panel">
-   <p>SmartHome<i class="fa fa-home"></i></p>
+    <p>SmartHome
+        <i class="fa fa-home"></i>
+    </p>
 </div>
-<app-elementos></app-elementos>
-<app-agregar-dispositivo></app-agregar-dispositivo>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2 pull-left">
+            <button class="boton-primary btn" style="background-color: #FF9800;" 
+                (click)="onCambioMenu()">{{ mensajeBoton }}</button>
+        </div>
+    </div>
+</div>
+<app-elementos *ngIf="menu"></app-elementos>
+<app-agregar-dispositivo *ngIf="!menu"></app-agregar-dispositivo>

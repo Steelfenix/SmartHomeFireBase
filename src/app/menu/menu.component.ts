@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class MenuComponent implements OnInit {
 
   toggle = false;
+  menu = true;
+  mensajeBoton = 'Agregar / Editar';
 
   constructor() { }
 
@@ -16,7 +18,15 @@ export class MenuComponent implements OnInit {
 
   onToggle() {
     this.toggle = !this.toggle;
-    console.log(this.toggle);
+  }
+
+  onCambioMenu() {
+    this.menu = !this.menu;
+    if (this.menu) {
+      this.mensajeBoton = 'Agregar / Editar';
+    } else {
+      this.mensajeBoton = 'Dispositivos';
+    }
   }
 
 }
