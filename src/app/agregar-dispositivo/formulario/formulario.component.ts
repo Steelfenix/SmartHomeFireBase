@@ -19,7 +19,7 @@ export class FormularioComponent implements OnInit {
   validado = true;
   mensajeBoton = 'Agregar';
 
-  constructor(private dispositivoService: DispositivoService) { }
+  constructor(public dispositivoService: DispositivoService) { }
 
   ngOnInit() {
     this.dispositivoService.consultarDispositivos();

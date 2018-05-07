@@ -15,6 +15,8 @@ export class ElementosComponent implements OnInit {
   notificacionList: Notificacion[];
   interval;
 
+  deshabilitado = true;
+
   constructor(
     private dispositivoService: DispositivoService,
     private notificationService: NotificacionService
@@ -52,6 +54,45 @@ export class ElementosComponent implements OnInit {
         });
         this.eliminarNotificacionesExtra();
       });
+  }
+
+  autoMode() {
+    let estado = 2;
+    this.deshabilitado = !this.deshabilitado;
+
+    if (this.deshabilitado === true ) {
+      estado = 0;
+    }
+    this.consultarDispositivos();
+      this.dispositivoList.forEach(x => {
+        x.estado = estado;
+        this.crearNotificacion(x);
+        this.dispositivoService.actualizarDispositivo(x);
+      });
+    this.consultarDispositivos();
+  }
+
+  obtenerEstado(estado): string {
+    switch (estado) {
+      case 0: return 'apagado';
+      case 1: return 'encendido';
+      case 2: return 'puesto en automatico';
+    }
+  }
+
+  crearNotificacion(dispositivo: Dispositivo) {
+    const notificacion: Notificacion = new Notificacion();
+
+    const fecha = new Date();
+
+    notificacion.hora = fecha.getHours().toString() +
+      ': ' + fecha.getMinutes().toString() +
+      ': ' + fecha.getSeconds().toString();
+    notificacion.fecha = fecha.toLocaleDateString();
+    notificacion.nombreDispositivo = dispositivo.nombre;
+    notificacion.estado = this.obtenerEstado(dispositivo.estado);
+
+    this.notificationService.agregarNotificacion(notificacion);
   }
 
   eliminarNotificacionesExtra() {

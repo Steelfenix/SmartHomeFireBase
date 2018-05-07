@@ -1,4 +1,10 @@
 <div class="container">
+  <div class="row" style="margin-top: 10px;">
+    <div class="col-sm-2 pull-left">
+        <button class="boton-primary btn" style="background-color: #FF9800;" 
+          (click)="autoMode()">Automatico</button>
+    </div>
+  </div>
   <div class="row">
     <app-dispositivo *ngFor="let dispositivo of dispositivoList" 
       [$key]="dispositivo.$key" 
