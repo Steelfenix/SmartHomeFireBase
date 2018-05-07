@@ -49,11 +49,6 @@ export class DispositivoComponent implements OnInit {
     this.setDispositivoModel();
   }
 
-  onAuto() {
-    this.estado = 2;
-    this.setDispositivoModel();
-  }
-
   crearNotificacion(dispositivo: Dispositivo) {
     const notificacion: Notificacion = new Notificacion();
 

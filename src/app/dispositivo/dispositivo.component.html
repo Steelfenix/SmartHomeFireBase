@@ -8,28 +8,20 @@
       </div>
       <div class="mdl-card__actions mdl-card--border">
         <div class="row">
-          <div class="col-sm-4">
+          <div class="col-sm-6">
             <button 
               (click)="onEncender()" 
               class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"
-              [disabled]="estado === 1">
+              [disabled]="estado === 1 || estado === 2">
               Encender
             </button>
           </div>
-          <div class="col-sm-4">
+          <div class="col-sm-6">
             <button 
               (click)="onApagar()" 
               class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"
-              [disabled]="estado === 0">
+              [disabled]="estado === 0 || estado === 2">
               Apagar
-            </button>
-          </div>
-          <div class="col-sm-4">
-            <button 
-              (click)="onAuto()" 
-              class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"
-              [disabled]="estado === 2">
-              Auto
             </button>
           </div>
         </div>
